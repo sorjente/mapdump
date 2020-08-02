@@ -12,3 +12,11 @@ TODO
 
 TODO
 
+
+## dev notes
+
+Tests can (and should be!) run with the following command:
+
+```bash
+$ python3 -m unittest discover -s mapdump/tests
+```

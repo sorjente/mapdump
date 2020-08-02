@@ -1,0 +1,329 @@
+Archive member included to satisfy reference by file (symbol)
+
+/usr/local/Caskroom/gcc-arm-embedded/9-2019-q4-major/gcc-arm-none-eabi-9-2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg.a(lib_a-memcpy.o)
+                              build/startup_stm32l452.o (memcpy)
+/usr/local/Caskroom/gcc-arm-embedded/9-2019-q4-major/gcc-arm-none-eabi-9-2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg.a(lib_a-memset.o)
+                              build/startup_stm32l452.o (memset)
+
+Discarded input sections
+
+ .group         0x0000000000000000        0xc build/startup_stm32l452.o
+ .group         0x0000000000000000        0xc build/startup_stm32l452.o
+ .group         0x0000000000000000        0xc build/startup_stm32l452.o
+ .group         0x0000000000000000        0xc build/startup_stm32l452.o
+ .group         0x0000000000000000        0xc build/startup_stm32l452.o
+ .group         0x0000000000000000        0xc build/startup_stm32l452.o
+ .group         0x0000000000000000        0xc build/startup_stm32l452.o
+ .text          0x0000000000000000        0x0 build/startup_stm32l452.o
+ .data          0x0000000000000000        0x0 build/startup_stm32l452.o
+ .bss           0x0000000000000000        0x0 build/startup_stm32l452.o
+ .text.Default_Handler
+                0x0000000000000000        0x4 build/startup_stm32l452.o
+ .isr_vector    0x0000000000000000      0x188 build/startup_stm32l452.o
+ .group         0x0000000000000000        0xc build/main.o
+ .group         0x0000000000000000        0xc build/main.o
+ .group         0x0000000000000000        0xc build/main.o
+ .group         0x0000000000000000        0xc build/main.o
+ .group         0x0000000000000000        0xc build/main.o
+ .group         0x0000000000000000        0xc build/main.o
+ .group         0x0000000000000000        0xc build/main.o
+ .group         0x0000000000000000        0xc build/main.o
+ .group         0x0000000000000000        0xc build/main.o
+ .group         0x0000000000000000        0xc build/main.o
+ .group         0x0000000000000000        0xc build/main.o
+ .group         0x0000000000000000        0xc build/main.o
+ .group         0x0000000000000000        0xc build/main.o
+ .group         0x0000000000000000        0xc build/main.o
+ .group         0x0000000000000000        0xc build/main.o
+ .group         0x0000000000000000        0xc build/main.o
+ .group         0x0000000000000000        0xc build/main.o
+ .group         0x0000000000000000        0xc build/main.o
+ .group         0x0000000000000000        0xc build/main.o
+ .group         0x0000000000000000        0xc build/main.o
+ .group         0x0000000000000000        0xc build/main.o
+ .group         0x0000000000000000        0xc build/main.o
+ .group         0x0000000000000000        0xc build/main.o
+ .group         0x0000000000000000        0xc build/main.o
+ .group         0x0000000000000000        0xc build/main.o
+ .group         0x0000000000000000        0xc build/main.o
+ .text          0x0000000000000000        0x0 build/main.o
+ .data          0x0000000000000000        0x0 build/main.o
+ .bss           0x0000000000000000        0x0 build/main.o
+ .data.test     0x0000000000000000        0x4 build/main.o
+ .debug_macro   0x0000000000000000      0xa96 build/main.o
+ .debug_macro   0x0000000000000000       0x22 build/main.o
+ .debug_macro   0x0000000000000000       0x6a build/main.o
+ .data          0x0000000000000000        0x0 /usr/local/Caskroom/gcc-arm-embedded/9-2019-q4-major/gcc-arm-none-eabi-9-2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg.a(lib_a-memcpy.o)
+ .bss           0x0000000000000000        0x0 /usr/local/Caskroom/gcc-arm-embedded/9-2019-q4-major/gcc-arm-none-eabi-9-2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg.a(lib_a-memcpy.o)
+ .text          0x0000000000000000        0x0 /usr/local/Caskroom/gcc-arm-embedded/9-2019-q4-major/gcc-arm-none-eabi-9-2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg.a(lib_a-memset.o)
+ .data          0x0000000000000000        0x0 /usr/local/Caskroom/gcc-arm-embedded/9-2019-q4-major/gcc-arm-none-eabi-9-2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg.a(lib_a-memset.o)
+ .bss           0x0000000000000000        0x0 /usr/local/Caskroom/gcc-arm-embedded/9-2019-q4-major/gcc-arm-none-eabi-9-2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg.a(lib_a-memset.o)
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+RAM              0x0000000020000000 0x0000000000028000 xrw
+FLASH            0x0000000008000000 0x0000000000080000 xr
+*default*        0x0000000000000000 0xffffffffffffffff
+
+Linker script and memory map
+
+LOAD build/startup_stm32l452.o
+LOAD build/main.o
+START GROUP
+LOAD /usr/local/Caskroom/gcc-arm-embedded/9-2019-q4-major/gcc-arm-none-eabi-9-2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v7e-m+fp/hard/libgcc.a
+LOAD /usr/local/Caskroom/gcc-arm-embedded/9-2019-q4-major/gcc-arm-none-eabi-9-2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg.a
+LOAD /usr/local/Caskroom/gcc-arm-embedded/9-2019-q4-major/gcc-arm-none-eabi-9-2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a
+END GROUP
+                0x0000000020000000                _start_ram = 0x20000000
+                0x0000000000028000                _size_ram = 0x28000
+                0x0000000008000000                _start_flash = 0x8000000
+                0x0000000000080000                _size_flash = 0x80000
+
+.text           0x0000000008000000      0x138
+                0x0000000008000000                . = ALIGN (0x8)
+                0x0000000008000000                _stext = .
+ *(.isr_vector)
+ *(.text)
+ .text          0x0000000008000000      0x134 /usr/local/Caskroom/gcc-arm-embedded/9-2019-q4-major/gcc-arm-none-eabi-9-2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg.a(lib_a-memcpy.o)
+                0x0000000008000000                memcpy
+ *(.rodata)
+                0x0000000008000138                . = ALIGN (0x8)
+ *fill*         0x0000000008000134        0x4 
+                0x0000000008000138                _etext = .
+
+.glue_7         0x0000000008000138        0x0
+ .glue_7        0x0000000008000138        0x0 linker stubs
+
+.glue_7t        0x0000000008000138        0x0
+ .glue_7t       0x0000000008000138        0x0 linker stubs
+
+.vfp11_veneer   0x0000000008000138        0x0
+ .vfp11_veneer  0x0000000008000138        0x0 linker stubs
+
+.v4_bx          0x0000000008000138        0x0
+ .v4_bx         0x0000000008000138        0x0 linker stubs
+
+.text.Reset_Handler
+                0x0000000008000138       0x40
+ .text.Reset_Handler
+                0x0000000008000138       0x40 build/startup_stm32l452.o
+                0x0000000008000138                Reset_Handler
+
+.iplt           0x0000000008000178        0x0
+ .iplt          0x0000000008000178        0x0 build/startup_stm32l452.o
+
+.text.startup.main
+                0x0000000008000178        0x4
+ .text.startup.main
+                0x0000000008000178        0x4 build/main.o
+                0x0000000008000178                main
+
+.text.memset    0x000000000800017c       0xa0
+ .text.memset   0x000000000800017c       0xa0 /usr/local/Caskroom/gcc-arm-embedded/9-2019-q4-major/gcc-arm-none-eabi-9-2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg.a(lib_a-memset.o)
+                0x000000000800017c                memset
+
+.rel.dyn        0x000000000800021c        0x0
+ .rel.iplt      0x000000000800021c        0x0 build/startup_stm32l452.o
+
+.data           0x0000000020000000        0x0 load address 0x000000000800021c
+                0x0000000020000000                . = ALIGN (0x8)
+                0x0000000020000000                _sdata = .
+ *(.data)
+                0x0000000020000000                . = ALIGN (0x8)
+                0x0000000020000000                _edata = .
+
+.igot.plt       0x0000000020000000        0x0 load address 0x000000000800021c
+ .igot.plt      0x0000000020000000        0x0 build/startup_stm32l452.o
+
+.bss            0x0000000020000000        0x0 load address 0x000000000800021c
+                0x0000000020000000                . = ALIGN (0x8)
+                0x0000000020000000                _sbss = .
+ *(.bss)
+ *(COMMON)
+                0x0000000020000000                . = ALIGN (0x8)
+                0x0000000020000000                _ebss = .
+OUTPUT(build/main.elf elf32-littlearm)
+
+.debug_info     0x0000000000000000      0xba2
+ .debug_info    0x0000000000000000      0x202 build/startup_stm32l452.o
+ .debug_info    0x0000000000000202      0x9a0 build/main.o
+
+.debug_abbrev   0x0000000000000000      0x33b
+ .debug_abbrev  0x0000000000000000      0x154 build/startup_stm32l452.o
+ .debug_abbrev  0x0000000000000154      0x1e7 build/main.o
+
+.debug_loc      0x0000000000000000       0x68
+ .debug_loc     0x0000000000000000       0x68 build/startup_stm32l452.o
+
+.debug_aranges  0x0000000000000000       0x48
+ .debug_aranges
+                0x0000000000000000       0x28 build/startup_stm32l452.o
+ .debug_aranges
+                0x0000000000000028       0x20 build/main.o
+
+.debug_ranges   0x0000000000000000       0x40
+ .debug_ranges  0x0000000000000000       0x30 build/startup_stm32l452.o
+ .debug_ranges  0x0000000000000030       0x10 build/main.o
+
+.debug_macro    0x0000000000000000     0x20bf
+ .debug_macro   0x0000000000000000       0x75 build/startup_stm32l452.o
+ .debug_macro   0x0000000000000075      0xa96 build/startup_stm32l452.o
+ .debug_macro   0x0000000000000b0b       0x22 build/startup_stm32l452.o
+ .debug_macro   0x0000000000000b2d       0x56 build/startup_stm32l452.o
+ .debug_macro   0x0000000000000b83       0x51 build/startup_stm32l452.o
+ .debug_macro   0x0000000000000bd4       0xef build/startup_stm32l452.o
+ .debug_macro   0x0000000000000cc3       0x6a build/startup_stm32l452.o
+ .debug_macro   0x0000000000000d2d      0x1df build/startup_stm32l452.o
+ .debug_macro   0x0000000000000f0c      0x162 build/main.o
+ .debug_macro   0x000000000000106e       0x58 build/main.o
+ .debug_macro   0x00000000000010c6       0x18 build/main.o
+ .debug_macro   0x00000000000010de       0x5c build/main.o
+ .debug_macro   0x000000000000113a       0x35 build/main.o
+ .debug_macro   0x000000000000116f       0x34 build/main.o
+ .debug_macro   0x00000000000011a3       0x16 build/main.o
+ .debug_macro   0x00000000000011b9       0x57 build/main.o
+ .debug_macro   0x0000000000001210       0x97 build/main.o
+ .debug_macro   0x00000000000012a7      0x35c build/main.o
+ .debug_macro   0x0000000000001603       0xf6 build/main.o
+ .debug_macro   0x00000000000016f9       0x10 build/main.o
+ .debug_macro   0x0000000000001709       0x58 build/main.o
+ .debug_macro   0x0000000000001761       0x1f build/main.o
+ .debug_macro   0x0000000000001780       0x43 build/main.o
+ .debug_macro   0x00000000000017c3       0x20 build/main.o
+ .debug_macro   0x00000000000017e3      0x18e build/main.o
+ .debug_macro   0x0000000000001971       0x10 build/main.o
+ .debug_macro   0x0000000000001981       0xb6 build/main.o
+ .debug_macro   0x0000000000001a37       0x16 build/main.o
+ .debug_macro   0x0000000000001a4d      0x129 build/main.o
+ .debug_macro   0x0000000000001b76       0x16 build/main.o
+ .debug_macro   0x0000000000001b8c       0x35 build/main.o
+ .debug_macro   0x0000000000001bc1      0x4fe build/main.o
+
+.debug_line     0x0000000000000000      0x62f
+ .debug_line    0x0000000000000000      0x2f4 build/startup_stm32l452.o
+ .debug_line    0x00000000000002f4      0x33b build/main.o
+
+.debug_str      0x0000000000000000     0x8158
+ .debug_str     0x0000000000000000     0x3bcb build/startup_stm32l452.o
+                                       0x3d4a (size before relaxing)
+ .debug_str     0x0000000000003bcb     0x458d build/main.o
+                                       0x7899 (size before relaxing)
+
+.comment        0x0000000000000000       0x79
+ .comment       0x0000000000000000       0x79 build/startup_stm32l452.o
+                                         0x7a (size before relaxing)
+ .comment       0x0000000000000079       0x7a build/main.o
+
+.ARM.attributes
+                0x0000000000000000       0x32
+ .ARM.attributes
+                0x0000000000000000       0x34 build/startup_stm32l452.o
+ .ARM.attributes
+                0x0000000000000034       0x34 build/main.o
+ .ARM.attributes
+                0x0000000000000068       0x1c /usr/local/Caskroom/gcc-arm-embedded/9-2019-q4-major/gcc-arm-none-eabi-9-2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg.a(lib_a-memcpy.o)
+ .ARM.attributes
+                0x0000000000000084       0x34 /usr/local/Caskroom/gcc-arm-embedded/9-2019-q4-major/gcc-arm-none-eabi-9-2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg.a(lib_a-memset.o)
+
+.debug_frame    0x0000000000000000       0x94
+ .debug_frame   0x0000000000000000       0x3c build/startup_stm32l452.o
+ .debug_frame   0x000000000000003c       0x20 build/main.o
+ .debug_frame   0x000000000000005c       0x38 /usr/local/Caskroom/gcc-arm-embedded/9-2019-q4-major/gcc-arm-none-eabi-9-2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg.a(lib_a-memset.o)
+
+Cross Reference Table
+
+Symbol                                            File
+ADC1_2_Handler                                    build/startup_stm32l452.o
+BusFault_Handler                                  build/startup_stm32l452.o
+CAN1_RX_0_Handler                                 build/startup_stm32l452.o
+CAN1_RX_1_Handler                                 build/startup_stm32l452.o
+CAN1_SCE_Handler                                  build/startup_stm32l452.o
+CAN1_TX_Handler                                   build/startup_stm32l452.o
+COMP_Handler                                      build/startup_stm32l452.o
+CRS_Handler                                       build/startup_stm32l452.o
+DFSDM1_FLT0_Handler                               build/startup_stm32l452.o
+DFSDM1_FLT1_Handler                               build/startup_stm32l452.o
+DMA1_CH1_Handler                                  build/startup_stm32l452.o
+DMA1_CH2_Handler                                  build/startup_stm32l452.o
+DMA1_CH3_Handler                                  build/startup_stm32l452.o
+DMA1_CH4_Handler                                  build/startup_stm32l452.o
+DMA1_CH5_Handler                                  build/startup_stm32l452.o
+DMA1_CH6_Handler                                  build/startup_stm32l452.o
+DMA1_CH7_Handler                                  build/startup_stm32l452.o
+DMA2_CH1_Handler                                  build/startup_stm32l452.o
+DMA2_CH2_Handler                                  build/startup_stm32l452.o
+DMA2_CH3_Handler                                  build/startup_stm32l452.o
+DMA2_CH4_Handler                                  build/startup_stm32l452.o
+DMA2_CH5_Handler                                  build/startup_stm32l452.o
+DMA2_CH6_Handler                                  build/startup_stm32l452.o
+DMA2_CH7_Handler                                  build/startup_stm32l452.o
+Debug_Handler                                     build/startup_stm32l452.o
+Default_Handler                                   build/startup_stm32l452.o
+EXTI0_Handler                                     build/startup_stm32l452.o
+EXTI15_10_Handler                                 build/startup_stm32l452.o
+EXTI1_Handler                                     build/startup_stm32l452.o
+EXTI2_Handler                                     build/startup_stm32l452.o
+EXTI3_Handler                                     build/startup_stm32l452.o
+EXTI4_Handler                                     build/startup_stm32l452.o
+EXTI9_5_Handler                                   build/startup_stm32l452.o
+FLASH_Handler                                     build/startup_stm32l452.o
+FPU_Handler                                       build/startup_stm32l452.o
+HardFault_Handler                                 build/startup_stm32l452.o
+I2C1_ER_Handler                                   build/startup_stm32l452.o
+I2C1_EV_Handler                                   build/startup_stm32l452.o
+I2C2_ER_Handler                                   build/startup_stm32l452.o
+I2C2_EV_Handler                                   build/startup_stm32l452.o
+I2C3_ER_Handler                                   build/startup_stm32l452.o
+I2C3_EV_Handler                                   build/startup_stm32l452.o
+I2C4_ER_Handler                                   build/startup_stm32l452.o
+I2C4_EV_Handler                                   build/startup_stm32l452.o
+LPTIM1_Handler                                    build/startup_stm32l452.o
+LPTIM2_Handler                                    build/startup_stm32l452.o
+LPUART1_Handler                                   build/startup_stm32l452.o
+MemManage_Handler                                 build/startup_stm32l452.o
+NMI_Handler                                       build/startup_stm32l452.o
+PVD_PVM_Handler                                   build/startup_stm32l452.o
+PendSV_Handler                                    build/startup_stm32l452.o
+QUADSPI_Handler                                   build/startup_stm32l452.o
+RCC_Handler                                       build/startup_stm32l452.o
+RNG_Handler                                       build/startup_stm32l452.o
+RTC_ALARM_Handler                                 build/startup_stm32l452.o
+RTC_TAMP_STAMP_Handler                            build/startup_stm32l452.o
+RTC_WKUP_Handler                                  build/startup_stm32l452.o
+Reset_Handler                                     build/startup_stm32l452.o
+SAI1_Handler                                      build/startup_stm32l452.o
+SDMMC1_Handler                                    build/startup_stm32l452.o
+SPI1_Handler                                      build/startup_stm32l452.o
+SPI2_Handler                                      build/startup_stm32l452.o
+SPI3_Handler                                      build/startup_stm32l452.o
+SVCall_Handler                                    build/startup_stm32l452.o
+SysTick_Handler                                   build/startup_stm32l452.o
+TIM1_BRK_Handler                                  build/startup_stm32l452.o
+TIM1_CC_Handler                                   build/startup_stm32l452.o
+TIM1_TRG_COM_Handler                              build/startup_stm32l452.o
+TIM1_UP_Handler                                   build/startup_stm32l452.o
+TIM2_Handler                                      build/startup_stm32l452.o
+TIM3_Handler                                      build/startup_stm32l452.o
+TIM6_DACUNDER_Handler                             build/startup_stm32l452.o
+TSC_Handler                                       build/startup_stm32l452.o
+UART4_Handler                                     build/startup_stm32l452.o
+USART1_Handler                                    build/startup_stm32l452.o
+USART2_Handler                                    build/startup_stm32l452.o
+USART3_Handler                                    build/startup_stm32l452.o
+USB_FS_Handler                                    build/startup_stm32l452.o
+UsageFault_Handler                                build/startup_stm32l452.o
+WWDG_Handler                                      build/startup_stm32l452.o
+_ebss                                             build/startup_stm32l452.o
+_edata                                            build/startup_stm32l452.o
+_etext                                            build/startup_stm32l452.o
+_sbss                                             build/startup_stm32l452.o
+_sdata                                            build/startup_stm32l452.o
+main                                              build/main.o
+                                                  build/startup_stm32l452.o
+memcpy                                            /usr/local/Caskroom/gcc-arm-embedded/9-2019-q4-major/gcc-arm-none-eabi-9-2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg.a(lib_a-memcpy.o)
+                                                  build/startup_stm32l452.o
+memset                                            /usr/local/Caskroom/gcc-arm-embedded/9-2019-q4-major/gcc-arm-none-eabi-9-2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg.a(lib_a-memset.o)
+                                                  build/startup_stm32l452.o
+test                                              build/main.o
+vectorTable                                       build/startup_stm32l452.o
