@@ -2,7 +2,7 @@
 
 import re
 
-from .definitions import MEMORY_CONFIG_REGEX, LOCAL_SYMBOL_REGEX, LIB_SYMBOL_REGEX
+from .definitions import MEMORY_CONFIG_REGEX, LOCAL_SYMBOL_REGEX, LIB_SYMBOL_REGEX, COMMON_SYMBOL_REGEX
 from .symbol import Symbol
 from .memory import Memory
 
@@ -68,6 +68,13 @@ def get_raw_symbols(mapfile):
                    3. The object file containing the symbol
                    4-6. First character of the object file's path, to be ignored
                    7. The symbol's name
+            3. Common symbols (symbols in COMMON section): each tuple describes a section/symbol that contains one or
+               more subsymbols. The tuple's elements are as follows:
+                   0. The symbol's address
+                   1. The symbol's size
+                   2. The object file containing the symbol
+                   3-5. First character of the object file's path, to be ignored
+                   6. The symbol's name
     '''
     with open(mapfile, 'r') as file:
         raw_data = file.read()
@@ -81,7 +88,10 @@ def get_raw_symbols(mapfile):
     lib_symbol_pattern = re.compile(LIB_SYMBOL_REGEX)
     lib_symbols = lib_symbol_pattern.findall(raw_data, pos=start_index)
 
-    return local_symbols, lib_symbols
+    common_symbol_pattern = re.compile(COMMON_SYMBOL_REGEX)
+    common_symbols = common_symbol_pattern.findall(raw_data, pos=start_index)
+
+    return local_symbols, lib_symbols, common_symbols
 
 
 def construct_symbol_list(mapfile):
@@ -95,7 +105,7 @@ def construct_symbol_list(mapfile):
     '''
 
     symbol_list = []
-    local_symbols, lib_symbols = get_raw_symbols(mapfile)
+    local_symbols, lib_symbols, common_symbols = get_raw_symbols(mapfile)
 
     for symbol in local_symbols:
         symbol_name = symbol[0].split('.')[-1]
@@ -126,5 +136,20 @@ def construct_symbol_list(mapfile):
                                       size=symbol_size,
                                       file=obj_file,
                                       lib=lib_file))
+
+
+    for symbol in common_symbols:
+        symbol_name = symbol[6]
+        symbol_section = "COMMON"
+        symbol_addr = int(symbol[0], 0)
+        symbol_size = int(symbol[1], 0)
+        symbol_file = symbol[2]
+
+        if symbol_size > 0:
+            symbol_list.append(Symbol(name=symbol_name,
+                                      section=symbol_section,
+                                      address=symbol_addr,
+                                      size=symbol_size,
+                                      file=symbol_file))
 
     return symbol_list

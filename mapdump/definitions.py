@@ -50,3 +50,26 @@ LIB_SYMBOL_REGEX = r"\.([a-zA-Z0-9._]+)"\
                    r"0x[a-zA-Z0-9]+"\
                    r"[\s]+"\
                    r"([a-zA-Z0-9_]+)"
+
+
+# COMMON section
+# Whitespace
+# Symbol start address
+# Whitespace
+# Symbol size
+# Whitespace
+# Path of .o file that contains the symbol
+# Whitespace
+# Address (same as before)
+# Symbol name
+COMMON_SYMBOL_REGEX = r"COMMON"\
+                      r"[\s]+"\
+                      r"(0x[a-zA-Z0-9]+)"\
+                      r"[\s]+"\
+                      r"(0x[a-zA-Z0-9]+)"\
+                      r"[\s]+"\
+                      r"(([a-zA-Z]|(\.\/)|(\/))[a-zA-Z0-9\/._-]+\.o)"\
+                      r"[\s]+"\
+                      r"[a-zA-Z0-9]+"\
+                      r"[\s]+"\
+                      r"([a-zA-Z0-9_]+)"
