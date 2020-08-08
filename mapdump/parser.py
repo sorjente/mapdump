@@ -2,7 +2,8 @@
 
 import re
 
-from .definitions import MEMORY_CONFIG_REGEX, LOCAL_SYMBOL_REGEX, LIB_SYMBOL_REGEX, COMMON_SYMBOL_REGEX
+from .definitions import MEMORY_CONFIG_REGEX, LOCAL_SYMBOL_REGEX, LIB_SYMBOL_REGEX, COMMON_SYMBOL_REGEX,\
+                         FILL_SYMBOL_REGEX
 from .symbol import Symbol
 from .memory import Memory
 
@@ -82,16 +83,24 @@ def get_raw_symbols(mapfile):
     start_pattern = re.compile("Linker script and memory map")
     start_index = start_pattern.search(raw_data).start()
 
+    # This end pattern is not present in all .map files; however, it doesn't matter because if it is not there we will
+    # search until the end of the file
+    end_pattern = re.compile("/DISCARD/")
+    end_index = end_pattern.search(raw_data).start()
+
     local_symbol_pattern = re.compile(LOCAL_SYMBOL_REGEX)
-    local_symbols = local_symbol_pattern.findall(raw_data, pos=start_index)
+    local_symbols = local_symbol_pattern.findall(raw_data, pos=start_index, endpos=end_index)
 
     lib_symbol_pattern = re.compile(LIB_SYMBOL_REGEX)
-    lib_symbols = lib_symbol_pattern.findall(raw_data, pos=start_index)
+    lib_symbols = lib_symbol_pattern.findall(raw_data, pos=start_index, endpos=end_index)
 
     common_symbol_pattern = re.compile(COMMON_SYMBOL_REGEX)
-    common_symbols = common_symbol_pattern.findall(raw_data, pos=start_index)
+    common_symbols = common_symbol_pattern.findall(raw_data, pos=start_index, endpos=end_index)
 
-    return local_symbols, lib_symbols, common_symbols
+    fill_symbol_pattern = re.compile(FILL_SYMBOL_REGEX)
+    fill_symbols = fill_symbol_pattern.findall(raw_data, pos=start_index, endpos=end_index)
+
+    return local_symbols, lib_symbols, common_symbols, fill_symbols
 
 
 def construct_symbol_list(mapfile):
@@ -108,7 +117,7 @@ def construct_symbol_list(mapfile):
     local_symbols, lib_symbols, common_symbols = get_raw_symbols(mapfile)
 
     for symbol in local_symbols:
-        symbol_name = symbol[0].split('.')[-1]
+        symbol_name = '.'.join(symbol[0].split('.')[1:])
         symbol_section = '.'.join(symbol[0].split('.')[:-1])
         symbol_addr = int(symbol[1], 0)
         symbol_size = int(symbol[2], 0)

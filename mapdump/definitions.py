@@ -73,3 +73,10 @@ COMMON_SYMBOL_REGEX = r"COMMON"\
                       r"[a-zA-Z0-9]+"\
                       r"[\s]+"\
                       r"([a-zA-Z0-9_]+)"
+
+
+FILL_SYMBOL_REGEX = r"\*fill\*"\
+                    r"[\s]+"\
+                    r"(0x[a-zA-Z0-9]+)"\
+                    r"[\s]+"\
+                    r"(0x[a-zA-Z0-9]+)"
