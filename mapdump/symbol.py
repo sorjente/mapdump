@@ -25,4 +25,12 @@ class Symbol(object):
 
 
     def is_external(self):
-        return self.lib != None        
+        return self.lib != None
+
+
+    def is_common(self):
+        return self.section == 'COMMON'
+
+
+    def is_fill(self):
+        return self.name == '*fill*'

@@ -53,7 +53,7 @@ def get_raw_symbols(mapfile):
         mapfile: the path to the .map file.
 
     Outputs:
-        A tuple of two lists of tuples:
+        A tuple of 4 lists of tuples:
             1. Local symbols: each tuple describes a section/symbol that contains one or more subsymbols. The tuple's
                elements are as follows:
                    0. The section/symbol's name
@@ -76,6 +76,9 @@ def get_raw_symbols(mapfile):
                    2. The object file containing the symbol
                    3-5. First character of the object file's path, to be ignored
                    6. The symbol's name
+            4. Fill/padding space: each tuple contains some padding/filler space. The tuple's elements are as follows:
+                   0. The address of the padding
+                   1. The size of the padding
     '''
     with open(mapfile, 'r') as file:
         raw_data = file.read()
@@ -114,11 +117,15 @@ def construct_symbol_list(mapfile):
     '''
 
     symbol_list = []
-    local_symbols, lib_symbols, common_symbols = get_raw_symbols(mapfile)
+    local_symbols, lib_symbols, common_symbols, fill_symbols = get_raw_symbols(mapfile)
 
     for symbol in local_symbols:
-        symbol_name = '.'.join(symbol[0].split('.')[1:])
-        symbol_section = '.'.join(symbol[0].split('.')[:-1])
+        if len(symbol[0].split('.')) > 1:
+            symbol_name = '.'.join(symbol[0].split('.')[1:])
+        else:
+            symbol_name = symbol[0].split('.')[0]
+
+        symbol_section = symbol[0].split('.')[0]
         symbol_addr = int(symbol[1], 0)
         symbol_size = int(symbol[2], 0)
         symbol_file = symbol[3]
@@ -132,7 +139,7 @@ def construct_symbol_list(mapfile):
 
     for symbol in lib_symbols:
         symbol_name = symbol[7]
-        symbol_section = symbol[0]
+        symbol_section = symbol[0].split('.')[0]
         symbol_addr = int(symbol[1], 0)
         symbol_size = int(symbol[2], 0)
         lib_file = symbol[3].split('(')[0]
@@ -153,6 +160,20 @@ def construct_symbol_list(mapfile):
         symbol_addr = int(symbol[0], 0)
         symbol_size = int(symbol[1], 0)
         symbol_file = symbol[2]
+
+        if symbol_size > 0:
+            symbol_list.append(Symbol(name=symbol_name,
+                                      section=symbol_section,
+                                      address=symbol_addr,
+                                      size=symbol_size,
+                                      file=symbol_file))
+
+    for symbol in fill_symbols:
+        symbol_name = "*fill*"
+        symbol_section = "*fill*"
+        symbol_addr = int(symbol[0], 0)
+        symbol_size = int(symbol[1], 0)
+        symbol_file = None
 
         if symbol_size > 0:
             symbol_list.append(Symbol(name=symbol_name,

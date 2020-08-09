@@ -75,6 +75,11 @@ COMMON_SYMBOL_REGEX = r"COMMON"\
                       r"([a-zA-Z0-9_]+)"
 
 
+# FILL entry
+# Whitespace
+# Start address
+# Whitespace
+# Size
 FILL_SYMBOL_REGEX = r"\*fill\*"\
                     r"[\s]+"\
                     r"(0x[a-zA-Z0-9]+)"\
