@@ -38,9 +38,11 @@ def get_memory_config(mapfile):
         sector_addr = int(sector[1], 0)
         sector_size = int(sector[2], 0)
         
-        memory_config_list.append(Memory(name=sector_name,
-                                         address=sector_addr,
-                                         size=sector_size))
+        # Skip the default sector
+        if sector_name != "*default*":
+            memory_config_list.append(Memory(name=sector_name,
+                                             address=sector_addr,
+                                             size=sector_size))
 
     return memory_config_list
 

@@ -25,9 +25,9 @@ class TestParser(unittest.TestCase):
         simple_blinky_memconf = get_memory_config(SIMPLE_BLINKY_MAP)
         custom_pcb_memconf = get_memory_config(CUSTOM_PCB_MAP)
 
-        # Each .map file should have 3 sectors: RAM, FLASH and *default*
-        self.assertEqual(len(simple_blinky_memconf), 3)
-        self.assertEqual(len(custom_pcb_memconf), 3)
+        # Each .map file should have 2 sectors: RAM and FLASH (*default* is discarded)
+        self.assertEqual(len(simple_blinky_memconf), 2)
+        self.assertEqual(len(custom_pcb_memconf), 2)
 
         # Check that the sectors are Memory objects
         self.assertIsInstance(simple_blinky_memconf[0], Memory)

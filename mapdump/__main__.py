@@ -29,25 +29,29 @@ def main(mapfile):
     '''Analyzes a .map file in order to examine memory usage.'''
     # check file extension
     if mapfile.endswith('.map'):
-        #print(get_memory_config(mapfile))
-        #print(construct_symbol_list(get_raw_symbols(mapfile))[20])
-        
-
         memory_config = get_memory_config(mapfile)
         symbol_list = construct_symbol_list(mapfile)
+
     else:
         print("The file's extension is not correct. Please provide a .map file.")
         exit(1)
 
 
-    for memory in memory_config:
-        if memory.name == '*default*':
-            continue
-        print(memory)
-        for symbol in symbol_list:
+    symbols_per_memory_sector = []
+
+    for i in range(len(memory_config)):
+        symbols_per_memory_sector.append([])
+
+    for symbol in symbol_list:
+        for i, memory in enumerate(memory_config):
             if symbol.is_in_memory(memory):
-                print('\t', end='')
-                print(symbol)
+                symbols_per_memory_sector[i].append(symbol)
+                break
+
+
+    for i in range(len(symbols_per_memory_sector)):
+        sector_size = sum(list(map(lambda x: x.size, symbols_per_memory_sector[i])))
+        print(f'{memory_config[i].name}: {sector_size} bytes ({sector_size / memory_config[i].size * 100:.2f}%)')
 
 
 
