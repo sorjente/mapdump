@@ -91,7 +91,12 @@ def get_raw_symbols(mapfile):
     # This end pattern is not present in all .map files; however, it doesn't matter because if it is not there we will
     # search until the end of the file
     end_pattern = re.compile("/DISCARD/")
-    end_index = end_pattern.search(raw_data).start()
+    end_index = end_pattern.search(raw_data)
+    # If no index is found, take the maximum index, else take the start of the index found
+    if end_index == None:
+        end_index = len(raw_data) - 1
+    else:
+        end_index = end_index.start()
 
     local_symbol_pattern = re.compile(LOCAL_SYMBOL_REGEX)
     local_symbols = local_symbol_pattern.findall(raw_data, pos=start_index, endpos=end_index)
@@ -185,3 +190,32 @@ def construct_symbol_list(mapfile):
                                       file=symbol_file))
 
     return symbol_list
+
+
+def construct_file_size_dict(symbol_list):
+    '''
+    Constructs a dictionary with object (.o) files as the keys, and the size they occupy as their values.
+
+    Input:
+        A list of Symbols.
+    Output:
+        A dictionary in {file:size} form.
+    '''
+    file_size_dict = {}
+
+    for symbol in symbol_list:
+        key = symbol.file
+
+        if symbol.is_external():
+            # Add the library if the symbol is external
+            key += f' ({symbol.lib})'
+        elif symbol.file == None:
+            # No file means that the symbol is padding/filler
+            key = '*fill*'
+
+        if key not in file_size_dict:
+            file_size_dict[key] = symbol.size
+        else:
+            file_size_dict[key] += symbol.size
+
+    return file_size_dict
