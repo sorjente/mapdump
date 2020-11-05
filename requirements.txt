@@ -1,3 +1,4 @@
 setuptools
 wheel
 click
+re
