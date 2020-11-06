@@ -5,9 +5,13 @@ C code.
 
 ## installation
 
-_Note: PyPi support is coming soon!_
+You can download & install `mapdump` via `pip`:
 
-You can download and use `mapdump` by cloning this repo:
+```text
+$ pip3 install mapdump
+```
+
+You can also download and use `mapdump` by cloning this repo:
 
 ```text
 $ git clone https://github.com/sorjente/mapdump
@@ -23,7 +27,7 @@ Using `mapdump` is very simple; you only need to provide it with the `.map` file
 to analyze. Let's say I want to analyse `hello_world.map`:
 
 ```text
-$ python3 -m mapdump hello_world.map
+$ mapdump hello_world.map
 FLASH @ 0x0008000000 (524288 bytes)
 ****************************************
     build/startup_stm32l452.o                                                                                     [460 bytes, 31.94% of FLASH space used]
