@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-VERSION = "1.0.0"
+VERSION = "1.0.1"
 
 # Memory section name
 # Whitespace
