@@ -23,7 +23,7 @@ setuptools.setup(
         "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
         "Operating System :: OS Independent",
     ],
-    install_requires = [ "click", "re" ],
+    install_requires = [ "click" ],
     package_data = {'mapdump': []},
     include_package_data = True,
     entry_points = {'console_scripts': [
