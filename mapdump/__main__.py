@@ -15,18 +15,34 @@
 
 import sys
 import os
-import click
+import argparse
 
 from .definitions import VERSION
 from .parser import get_raw_symbols, construct_symbol_list, get_memory_config, construct_file_size_dict
 
-@click.command()
-@click.argument('mapfile', nargs = 1)
-@click.version_option(version = VERSION,
-                      prog_name = "mapdump")
+def get_args():
+    '''Parse the arguments provided through the CLI'''
+    arg_parser = argparse.ArgumentParser(prog='mapdump', 
+                                        description='mapdump is a CLI tool that analyzes the memory usage of a binary via its .map file.',
+                                        epilog="Developed by Sorjente - https://github.com/sorjente")
 
-def main(mapfile):
+    arg_parser.add_argument('mapfile')
+
+    arg_parser.add_argument('-v', '--version', 
+                            action='version', 
+                            version='%(prog)s ' + VERSION,
+                            help='print the current version of the software')
+
+    args = vars(arg_parser.parse_args())
+    return args
+
+def main():
     '''Analyzes a .map file in order to examine memory usage.'''
+    
+    # retrieve the arguments
+    args = get_args()    
+    mapfile = args['mapfile']
+
     # check file extension
     if mapfile.endswith('.map'):
         memory_config = get_memory_config(mapfile)
