@@ -1,24 +1,26 @@
-#!/usr/bin/env python3
-
 import re
 
-from .definitions import MEMORY_CONFIG_REGEX, LOCAL_SYMBOL_REGEX, LIB_SYMBOL_REGEX, COMMON_SYMBOL_REGEX,\
-                         FILL_SYMBOL_REGEX
+from .definitions import (
+    MEMORY_CONFIG_REGEX,
+    LOCAL_SYMBOL_REGEX,
+    LIB_SYMBOL_REGEX,
+    COMMON_SYMBOL_REGEX,
+    FILL_SYMBOL_REGEX,
+)
 from .symbol import Symbol
 from .memory import Memory
 
 
 def get_memory_config(mapfile):
-    '''
-    Gets the configuration of the memory sections.
+    """Gets the configuration of the memory sections.
 
     Inputs:
         mapfile: the path to the .map file.
     Outputs:
         A list containing the memory configurations (aka the different memory sectors).
-    '''
-    
-    with open(mapfile, 'r') as file:
+    """
+
+    with open(mapfile, "r") as file:
         raw_data = file.read()
 
     start_pattern = re.compile("Memory Configuration")
@@ -28,8 +30,9 @@ def get_memory_config(mapfile):
     end_index = end_pattern.search(raw_data).start()
 
     memory_config_pattern = re.compile(MEMORY_CONFIG_REGEX)
-    memory_config_data = memory_config_pattern.findall(raw_data, pos=start_index, endpos=end_index)
-
+    memory_config_data = memory_config_pattern.findall(
+        raw_data, pos=start_index, endpos=end_index
+    )
 
     memory_config_list = []
 
@@ -37,18 +40,18 @@ def get_memory_config(mapfile):
         sector_name = sector[0]
         sector_addr = int(sector[1], 0)
         sector_size = int(sector[2], 0)
-        
+
         # Skip the default sector
         if sector_name != "*default*":
-            memory_config_list.append(Memory(name=sector_name,
-                                             address=sector_addr,
-                                             size=sector_size))
+            memory_config_list.append(
+                Memory(name=sector_name, address=sector_addr, size=sector_size)
+            )
 
     return memory_config_list
 
 
 def get_raw_symbols(mapfile):
-    '''
+    """
     Gets raw symbols from a mapfile using the regex defined in defitions.py.
 
     Inputs:
@@ -81,8 +84,8 @@ def get_raw_symbols(mapfile):
             4. Fill/padding space: each tuple contains some padding/filler space. The tuple's elements are as follows:
                    0. The address of the padding
                    1. The size of the padding
-    '''
-    with open(mapfile, 'r') as file:
+    """
+    with open(mapfile, "r") as file:
         raw_data = file.read()
 
     start_pattern = re.compile("Linker script and memory map")
@@ -99,67 +102,82 @@ def get_raw_symbols(mapfile):
         end_index = end_index.start()
 
     local_symbol_pattern = re.compile(LOCAL_SYMBOL_REGEX)
-    local_symbols = local_symbol_pattern.findall(raw_data, pos=start_index, endpos=end_index)
+    local_symbols = local_symbol_pattern.findall(
+        raw_data, pos=start_index, endpos=end_index
+    )
 
     lib_symbol_pattern = re.compile(LIB_SYMBOL_REGEX)
-    lib_symbols = lib_symbol_pattern.findall(raw_data, pos=start_index, endpos=end_index)
+    lib_symbols = lib_symbol_pattern.findall(
+        raw_data, pos=start_index, endpos=end_index
+    )
 
     common_symbol_pattern = re.compile(COMMON_SYMBOL_REGEX)
-    common_symbols = common_symbol_pattern.findall(raw_data, pos=start_index, endpos=end_index)
+    common_symbols = common_symbol_pattern.findall(
+        raw_data, pos=start_index, endpos=end_index
+    )
 
     fill_symbol_pattern = re.compile(FILL_SYMBOL_REGEX)
-    fill_symbols = fill_symbol_pattern.findall(raw_data, pos=start_index, endpos=end_index)
+    fill_symbols = fill_symbol_pattern.findall(
+        raw_data, pos=start_index, endpos=end_index
+    )
 
     return local_symbols, lib_symbols, common_symbols, fill_symbols
 
 
 def construct_symbol_list(mapfile):
-    '''
+    """
     Constructs a complete memory dictionary, mapping sizes to symbols.
 
     Inputs:
         mapfile: the path to the .map file.
     Outputs:
         A symbol list, containing Symbol objects.
-    '''
+    """
 
     symbol_list = []
     local_symbols, lib_symbols, common_symbols, fill_symbols = get_raw_symbols(mapfile)
 
     for symbol in local_symbols:
-        if len(symbol[0].split('.')) > 1:
-            symbol_name = '.'.join(symbol[0].split('.')[1:])
+        if len(symbol[0].split(".")) > 1:
+            symbol_name = ".".join(symbol[0].split(".")[1:])
         else:
-            symbol_name = symbol[0].split('.')[0]
+            symbol_name = symbol[0].split(".")[0]
 
-        symbol_section = symbol[0].split('.')[0]
+        symbol_section = symbol[0].split(".")[0]
         symbol_addr = int(symbol[1], 0)
         symbol_size = int(symbol[2], 0)
         symbol_file = symbol[3]
 
         if symbol_size > 0:
-            symbol_list.append(Symbol(name=symbol_name,
-                                      section=symbol_section,
-                                      address=symbol_addr,
-                                      size=symbol_size,
-                                      file=symbol_file))
+            symbol_list.append(
+                Symbol(
+                    name=symbol_name,
+                    section=symbol_section,
+                    address=symbol_addr,
+                    size=symbol_size,
+                    file=symbol_file,
+                )
+            )
 
     for symbol in lib_symbols:
         symbol_name = symbol[7]
-        symbol_section = symbol[0].split('.')[0]
+        symbol_section = symbol[0].split(".")[0]
         symbol_addr = int(symbol[1], 0)
         symbol_size = int(symbol[2], 0)
-        lib_file = symbol[3].split('(')[0]
-        obj_file = symbol[3].split('(')[1].split(')')[0]
+        lib_file = symbol[3].split("(")[0]
+        obj_file = symbol[3].split("(")[1].split(")")[0]
 
         if symbol_size > 0:
-            symbol_list.append(Symbol(name=symbol_name,
-                                      section=symbol_section,
-                                      address=symbol_addr,
-                                      size=symbol_size,
-                                      file=obj_file,
-                                      lib=lib_file))
-
+            symbol_list.append(
+                Symbol(
+                    name=symbol_name,
+                    section=symbol_section,
+                    address=symbol_addr,
+                    size=symbol_size,
+                    file=obj_file,
+                    lib=lib_file,
+                )
+            )
 
     for symbol in common_symbols:
         symbol_name = symbol[6]
@@ -169,11 +187,15 @@ def construct_symbol_list(mapfile):
         symbol_file = symbol[2]
 
         if symbol_size > 0:
-            symbol_list.append(Symbol(name=symbol_name,
-                                      section=symbol_section,
-                                      address=symbol_addr,
-                                      size=symbol_size,
-                                      file=symbol_file))
+            symbol_list.append(
+                Symbol(
+                    name=symbol_name,
+                    section=symbol_section,
+                    address=symbol_addr,
+                    size=symbol_size,
+                    file=symbol_file,
+                )
+            )
 
     for symbol in fill_symbols:
         symbol_name = "*fill*"
@@ -183,24 +205,28 @@ def construct_symbol_list(mapfile):
         symbol_file = None
 
         if symbol_size > 0:
-            symbol_list.append(Symbol(name=symbol_name,
-                                      section=symbol_section,
-                                      address=symbol_addr,
-                                      size=symbol_size,
-                                      file=symbol_file))
+            symbol_list.append(
+                Symbol(
+                    name=symbol_name,
+                    section=symbol_section,
+                    address=symbol_addr,
+                    size=symbol_size,
+                    file=symbol_file,
+                )
+            )
 
     return symbol_list
 
 
 def construct_file_size_dict(symbol_list):
-    '''
+    """
     Constructs a dictionary with object (.o) files as the keys, and the size they occupy as their values.
 
     Input:
         A list of Symbols.
     Output:
         A dictionary in {file:size} form.
-    '''
+    """
     file_size_dict = {}
 
     for symbol in symbol_list:
@@ -208,10 +234,10 @@ def construct_file_size_dict(symbol_list):
 
         if symbol.is_external():
             # Add the library if the symbol is external
-            key += f' ({symbol.lib})'
+            key += f" ({symbol.lib})"
         elif symbol.file == None:
             # No file means that the symbol is padding/filler
-            key = '*fill*'
+            key = "*fill*"
 
         if key not in file_size_dict:
             file_size_dict[key] = symbol.size

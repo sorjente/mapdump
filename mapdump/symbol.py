@@ -1,12 +1,8 @@
-#!/usr/bin/env python3
-
 from .memory import Memory
 
 
-class Symbol(object):
-    """
-    Describes symbols found in object files.
-    """
+class Symbol:
+    """Describes symbols found in object files."""
 
     def __init__(self, name, address, size, section, file, lib=None):
         self.name = name

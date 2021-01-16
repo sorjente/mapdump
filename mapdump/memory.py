@@ -1,10 +1,5 @@
-#!/usr/bin/env python3
-
-
-class Memory(object):
-    """
-    Describes a memory sector (like FLASH, RAM etc).
-    """
+class Memory:
+    """Describes a memory sector (like FLASH, RAM etc)."""
 
     def __init__(self, name, address, size):
         self.name = name

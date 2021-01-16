@@ -1,6 +1,5 @@
-#!/usr/bin/env python3
-
-VERSION = "1.0.1"
+__version_items__ = ("1", "0", "1")
+__version__ = ".".join(__version_items__)
 
 # Memory section name
 # Whitespace
