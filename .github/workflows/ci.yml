@@ -21,6 +21,7 @@ jobs:
       run: python3 -m black mapdump/*.py tests/*.py
     - name: Run tox
       run: python3 -m tox
+    - uses: codecov/codecov-action@v1
 
 
   macos-build:
