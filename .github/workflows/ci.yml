@@ -7,13 +7,29 @@ on:
     branches: [ master ]
 
 jobs:
-  build:
-
+  ubuntu-build:
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v2
-    - name: Install dependencies
-      run: python3 -m pip install -r requirements.txt
-    - name: Run tests
-      run: python3 -m unittest discover -s mapdump/tests
+    - name: Install setuptools
+      run: sudo apt-get install python3-setuptools
+    - name: Install wheel
+      run: pip3 install -U wheel --user
+    - name: Install Python dependencies
+      run: pip3 install -r requirements.txt
+    - name: Run black
+      run: python3 -m black mapdump/*.py tests/*.py
+    - name: Run tox
+      run: python3 -m tox
+
+
+  macos-build:
+    runs-on: macos-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Install Python dependencies
+      run: pip3 install -r requirements.txt
+    - name: Run black
+      run: black mapdump/*.py tests/*.py
+    - name: Run tox
+      run: tox

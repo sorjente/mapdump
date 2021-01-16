@@ -45,8 +45,20 @@ FLASH @ 0x0008000000 (524288 bytes)
 
 ## dev notes
 
+You can install all of the dependencies needed to build the project by running:
+
+```text
+$ python3 -m pip install -r requirements.txt
+```
+
+You must then activate pre-commit checks with Black, by running (inside the repo):
+
+```text
+$ pre-commit install
+```
+
 Tests can (and should be!) run with the following command:
 
-```bash
-$ python3 -m unittest discover -s mapdump/tests
+```text
+$ tox
 ```
